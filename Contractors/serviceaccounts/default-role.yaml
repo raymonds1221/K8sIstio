@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: defaultsa-role
+rules:
+  - apiGroups: ["", "extensions", "apps"] # "" indicates the core API group
+    resources:
+      [
+        "pods",
+        "configmaps",
+        "namespaces",
+        "services",
+        "deployments",
+        "replicasets",
+        "secrets",
+      ]
+    verbs: ["get", "watch", "list", "create", "delete"]
